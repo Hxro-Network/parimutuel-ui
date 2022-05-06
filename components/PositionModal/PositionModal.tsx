@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 import ReactSlider from "react-slider";
-import { calculateOdd, PositionSideEnum, WalletSigner } from "parimutuel-web3";
+import getConfig from "next/config";
+import { calculateOdd, ConfigEnum, PositionSideEnum, WalletSigner } from "parimutuel-web3";
 import useSound from "use-sound";
 import {
   Box,
@@ -43,6 +44,10 @@ export const PositionModal: React.FC = () => {
   const notify = useNotify();
   const [amount, setAmount] = useState("");
 
+  const {
+    publicRuntimeConfig: { APP_ENV },
+  } = getConfig();
+
   const parimutuelAccount = useMemo(
     () => parimutuels.find((parimutuel) => parimutuel.pubkey.toBase58() === selectedParimutuel),
     [parimutuels, selectedParimutuel],
@@ -65,10 +70,16 @@ export const PositionModal: React.FC = () => {
   const handleEnterPosition = useCallback(async () => {
     play();
 
+    // TODO FIXME - adjust decimals for mainnet and devnet
+    // because the mainnet USDC token decimals is 6
+    // while our devnet USDC token decimals is 9
+    const decimalsAdjustedAmount =
+      APP_ENV === ConfigEnum.DEV ? parseFloat(amount) : parseFloat(amount) / 1000;
+
     const transactionId = await web3?.placePosition(
       wallet as WalletSigner,
       new PublicKey(selectedParimutuel),
-      parseFloat(amount) * 100,
+      decimalsAdjustedAmount / 100, // TODO - document arbitrary 100 factor division
       isLong ? 0 : 1,
     );
 
