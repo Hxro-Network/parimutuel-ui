@@ -15,10 +15,10 @@ import PositionPanel from "@components/PositionPanel/PositionPanel";
 import StakingPanel from "@components/StakingPanel/StakingPanel";
 import { getWeb3Config } from "@constants/config";
 
-const TradingView = dynamic(
-  () => import("@components/TradingView/TradingView").then((mod) => mod as any), // eslint-disable-line
-  { ssr: false },
-);
+// const TradingView = dynamic(
+//   () => import("@components/TradingView/TradingView").then((mod) => mod as any), // eslint-disable-line
+//   { ssr: false },
+// );
 
 const Home: NextPage = () => {
   const config = getWeb3Config();
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
               <GlobalStatsPanel />
             </Flex>
             <Flex flexDirection="column" mx="29px" flexGrow={1} minWidth="960px" mt="20px">
-              <TradingView />
+              {/* <TradingView /> */}
               <MarketPanel />
             </Flex>
             <Flex flexDirection="column" mt="14px" mr="20px">

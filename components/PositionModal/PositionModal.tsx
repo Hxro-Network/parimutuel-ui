@@ -73,22 +73,32 @@ export const PositionModal: React.FC = () => {
 
   const handleEnterPosition = useCallback(async () => {
     play();
+    try {
+      const transactionId = await web3?.placePosition(
+        wallet as WalletSigner,
+        new PublicKey(selectedParimutuel),
+        parseFloat(amount) * (10 ** usdcDecimals / contractSize),
+        isLong ? 0 : 1,
+        Date.now(),
+      );
 
-    const transactionId = await web3?.placePosition(
-      wallet as WalletSigner,
-      new PublicKey(selectedParimutuel),
-      parseFloat(amount) * (10 ** usdcDecimals / contractSize),
-      isLong ? 0 : 1,
-      Date.now()
-    );
-
-    if (transactionId) {
-      notify({
-        title: "Position Entered",
-        description: "Position has been placed successfully",
-      });
-      getPositions();
-      setIsPositionShown(false);
+      if (transactionId) {
+        notify({
+          title: "Position Entered",
+          description: "Position has been placed successfully",
+        });
+        getPositions();
+        setIsPositionShown(false);
+      }
+    } catch (error: any) {
+      if (error.includes("ParimutuelTraderPositionAccount already exists")) {
+        notify({
+          title: "Position Entered",
+          description: "Position has been placed successfully",
+        });
+        getPositions();
+        setIsPositionShown(false);
+      }
     }
   }, [
     play,
