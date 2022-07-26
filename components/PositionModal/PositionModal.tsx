@@ -91,8 +91,9 @@ export const PositionModal: React.FC = () => {
         getPositions();
         setIsPositionShown(false);
       }
-    } catch (error: any) {
-      if (error.includes("ParimutuelTraderPositionAccount already exists")) {
+    } catch (error: unknown) {
+      const msg: string = error as string;
+      if (msg.includes("ParimutuelTraderPositionAccount already exists")) {
         notify({
           title: "Position Entered",
           description: "Position has been placed successfully",
