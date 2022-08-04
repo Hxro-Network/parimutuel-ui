@@ -86,7 +86,7 @@ export const ParimutuelProvider: React.FC = ({ children }) => {
   }, [selectedMarketPair, web3, config]);
 
   const fetchFees = useCallback(async () => {
-    if (!network || !markets) return;
+    if (!network || !markets || !markets.length) return;
     const market = markets[0];
     const {
       network: { protocolFeeAmount, settlementFeeAmount },
