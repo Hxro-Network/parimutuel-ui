@@ -20,7 +20,7 @@
     "@fontsource/open-sans": "^4.5.2",
     "@fontsource/roboto": "^4.5.1",
     "@fontsource/sora": "^4.5.0",
-    "@hxronetwork/parimutuelsdk": "^1.0.4",
+    "@hxronetwork/parimutuelsdk": "^1.0.5",
     "@pythnetwork/client": "^2.5.1",
     "@solana/spl-token-registry": "^0.2.819",
     "@solana/wallet-adapter-base": "^0.7.0",
