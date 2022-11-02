@@ -112,7 +112,7 @@ const DataFeed = {
       limit: 2000,
     };
     const query = Object.keys(urlParameters)
-      .map((name) => `${name}=${encodeURIComponent(_get(urlParameters, name))}`)
+      .map((name) => `${name}=${encodeURIComponent(_get(urlParameters, name) || '')}`)
       .join("&");
 
     try {
