@@ -15,6 +15,9 @@ import {
 
 import { useModal } from "@contexts/modal";
 import closeSvg from "@public/images/close.svg";
+import getConfig from "next/config";
+
+const {publicRuntimeConfig: { APP_ENV },} = getConfig();
 
 export const WhitelistModal: React.FC = () => {
   const { isWhitelistShown, setIsWhitelistShown, isBlacklistShown, setIsBlacklistShown } =
@@ -26,7 +29,8 @@ export const WhitelistModal: React.FC = () => {
   }, [setIsWhitelistShown, setIsBlacklistShown]);
 
   return (
-    <Modal isOpen={isWhitelistShown || isBlacklistShown} onClose={handleClose}>
+    // Not show whitelisting if devnet
+    <Modal isOpen={APP_ENV !== "dev" && (isWhitelistShown || isBlacklistShown)} onClose={handleClose}>
       <ModalOverlay />
       <ModalContent overflow="hidden" bgColor="brand.200">
         <ModalHeader bgColor="brand.200">
