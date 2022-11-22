@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import getConfig from "next/config";
 import {
   Box,
   Flex,
@@ -15,9 +16,10 @@ import {
 
 import { useModal } from "@contexts/modal";
 import closeSvg from "@public/images/close.svg";
-import getConfig from "next/config";
 
-const {publicRuntimeConfig: { APP_ENV },} = getConfig();
+const {
+  publicRuntimeConfig: { APP_ENV },
+} = getConfig();
 
 export const GeoBlockModal: React.FC = () => {
   const { isGeoBlockShown, setIsGeoBlockShown } = useModal();
