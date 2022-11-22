@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import getConfig from "next/config";
 import {
   Box,
   Flex,
@@ -17,10 +16,6 @@ import {
 import { useModal } from "@contexts/modal";
 import closeSvg from "@public/images/close.svg";
 
-const {
-  publicRuntimeConfig: { APP_ENV },
-} = getConfig();
-
 export const GeoBlockModal: React.FC = () => {
   const { isGeoBlockShown, setIsGeoBlockShown } = useModal();
 
@@ -29,7 +24,7 @@ export const GeoBlockModal: React.FC = () => {
   }, [setIsGeoBlockShown]);
 
   return (
-    <Modal isOpen={APP_ENV !== "dev" && isGeoBlockShown} onClose={handleClose}>
+    <Modal isOpen={isGeoBlockShown} onClose={handleClose}>
       <ModalOverlay />
       <ModalContent overflow="hidden" bgColor="brand.200">
         <ModalHeader bgColor="brand.200">

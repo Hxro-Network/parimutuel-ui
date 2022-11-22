@@ -3,6 +3,10 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { useGeo } from "@contexts/geo";
 import { useModal } from "@contexts/modal";
 import { useWhitelist } from "@contexts/whitelist";
+import getConfig from "next/config";
+const {
+  publicRuntimeConfig: { APP_ENV },
+} = getConfig();
 
 export type BlockProps = { isBlocked: boolean; setModal?: (open: boolean) => void };
 
@@ -17,15 +21,15 @@ export const useBlock = (): BlockProps => {
     return { isBlocked: true, setModal: setIsWalletShown };
   }
 
-  if (isGeoBlocked) {
+  if (APP_ENV !== "dev" && isGeoBlocked) {
     return { isBlocked: true, setModal: setIsGeoBlockShown };
   }
 
-  if (!whitelist.includes(publicKey.toBase58())) {
+  if (APP_ENV !== "dev" && !whitelist.includes(publicKey.toBase58())) {
     return { isBlocked: true, setModal: setIsWhitelistShown };
   }
 
-  if (blacklist.includes(publicKey.toBase58())) {
+  if (APP_ENV !== "dev" && blacklist.includes(publicKey.toBase58())) {
     return { isBlocked: true, setModal: setIsBlacklistShown };
   }
 
