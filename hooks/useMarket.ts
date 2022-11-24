@@ -84,18 +84,18 @@ export const parseMarket = (
       short: shortPosition / decimalDivider,
     },
     locked: {
-      price: strike.toNumber() / 10 ** (pythUsdDecimal || 8),
+      price: strike.toNumber() / 10 ** pythUsdDecimal,
     },
     settled: {
-      price: index.toNumber() / 10 ** (pythUsdDecimal || 8),
+      price: index.toNumber() / 10 ** pythUsdDecimal,
     },
     payout: {
       longPosition: longPosition / decimalDivider,
       shortPosition: shortPosition / decimalDivider,
       longPool: activeLongPositions.toNumber() / decimalDivider,
       shortPool: activeShortPositions.toNumber() / decimalDivider,
-      lockedPrice: strike.toNumber() / 10 ** (pythUsdDecimal || 8),
-      settledPrice: index.toNumber() / 10 ** (pythUsdDecimal || 8),
+      lockedPrice: strike.toNumber() / 10 ** pythUsdDecimal,
+      settledPrice: index.toNumber() / 10 ** pythUsdDecimal,
       parimutuelPubkey: parimutuelAccount.pubkey.toBase58(),
       marketPubkey: parimutuel.marketKey,
       isExpired: !!expired,
@@ -116,7 +116,7 @@ export const useMarket = () => {
 
   const pythUsdDecimal = useMemo(() => {
     const price = priceMap[MarketPairEnum.SOLUSD];
-    return Math.abs(price?.priceData.exponent) ?? 8;
+    return Math.abs(price?.priceData.exponent) || 8;
   }, [priceMap]);
 
   const settledParimutuels = useMemo(
