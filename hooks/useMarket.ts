@@ -84,18 +84,18 @@ export const parseMarket = (
       short: shortPosition / decimalDivider,
     },
     locked: {
-      price: strike.toNumber() / 10 ** pythUsdDecimal,
+      price: strike.toNumber() / 10 ** (pythUsdDecimal || 8),
     },
     settled: {
-      price: index.toNumber() / 10 ** pythUsdDecimal,
+      price: index.toNumber() / 10 ** (pythUsdDecimal || 8),
     },
     payout: {
       longPosition: longPosition / decimalDivider,
       shortPosition: shortPosition / decimalDivider,
       longPool: activeLongPositions.toNumber() / decimalDivider,
       shortPool: activeShortPositions.toNumber() / decimalDivider,
-      lockedPrice: strike.toNumber() / 10 ** pythUsdDecimal,
-      settledPrice: index.toNumber() / 10 ** pythUsdDecimal,
+      lockedPrice: strike.toNumber() / 10 ** (pythUsdDecimal || 8),
+      settledPrice: index.toNumber() / 10 ** (pythUsdDecimal || 8),
       parimutuelPubkey: parimutuelAccount.pubkey.toBase58(),
       marketPubkey: parimutuel.marketKey,
       isExpired: !!expired,
