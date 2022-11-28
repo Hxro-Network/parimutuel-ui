@@ -45,3 +45,7 @@ public/library/datafeeds
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# IDE
+.idea
+
