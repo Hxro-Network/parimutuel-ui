@@ -78,7 +78,7 @@ export const PositionModal: React.FC = () => {
       wallet as WalletSigner,
       new PublicKey(selectedParimutuel),
       parseFloat(amount) * (10 ** usdcDecimals / contractSize),
-      isLong ? 0 : 1,
+      positionSide,
       Date.now()
     );
 
