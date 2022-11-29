@@ -116,7 +116,7 @@ export const useMarket = () => {
 
   const pythUsdDecimal = useMemo(() => {
     const price = priceMap[MarketPairEnum.SOLUSD];
-    return Math.abs(price?.priceData.exponent) ?? 8;
+    return Math.abs(price?.priceData.exponent) || 8;
   }, [priceMap]);
 
   const settledParimutuels = useMemo(
