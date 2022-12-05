@@ -21,13 +21,13 @@ export const useBlock = (): BlockProps => {
     return { isBlocked: true, setModal: setIsWalletShown };
   }
 
-  // if (APP_ENV !== "dev" && isGeoBlocked) {
-  //   return { isBlocked: true, setModal: setIsGeoBlockShown };
-  // }
+  if (APP_ENV !== "dev" && isGeoBlocked) {
+    return { isBlocked: true, setModal: setIsGeoBlockShown };
+  }
 
-  // if (APP_ENV !== "dev" && !whitelist.includes(publicKey.toBase58())) {
-  //   return { isBlocked: true, setModal: setIsWhitelistShown };
-  // }
+  if (APP_ENV !== "dev" && !whitelist.includes(publicKey.toBase58())) {
+    return { isBlocked: true, setModal: setIsWhitelistShown };
+  }
 
   if (APP_ENV !== "dev" && blacklist.includes(publicKey.toBase58())) {
     return { isBlocked: true, setModal: setIsBlacklistShown };
