@@ -29,7 +29,7 @@ const handler = async (req: FaucetNextApiRequest, res: NextApiResponse<Response>
   if (APP_ENV !== "dev") return;
 
   const connection = new Connection(
-    "https://api.devnet.rpcpool.com/081597d8bb90b3da7fd354257950",
+    "https://api.devnet.rpcpool.com/",
     "confirmed",
   );
   const web3 = new ParimutuelWeb3(getWeb3Config(), connection);
