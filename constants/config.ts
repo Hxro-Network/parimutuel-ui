@@ -18,6 +18,6 @@ export const getWeb3Url = () => {
   } = getConfig();
 
   if (APP_ENV === ConfigEnum.STAGING)
-    return "https://hxro.rpcpool.com/081597d8bb90b3da7fd354257950";
-  return "https://api.devnet.rpcpool.com/081597d8bb90b3da7fd354257950";
+    return "https://hxro.rpcpool.com/";
+  return "https://hxro-hxro-b289.devnet.rpcpool.com/";
 };
