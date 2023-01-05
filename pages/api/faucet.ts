@@ -29,9 +29,10 @@ const handler = async (req: FaucetNextApiRequest, res: NextApiResponse<Response>
   if (APP_ENV !== "dev") return;
 
   const connection = new Connection(
-    "https://api.devnet.rpcpool.com/",
+    "https://hxro-hxro-b289.devnet.rpcpool.com/",
     "confirmed",
   );
+  console.log(AUTHORITY_KEY_PAIR);
   const web3 = new ParimutuelWeb3(getWeb3Config(), connection);
   const base64ToString = Buffer.from(AUTHORITY_KEY_PAIR, "base64").toString();
   const keypairJson = JSON.parse(base64ToString);
