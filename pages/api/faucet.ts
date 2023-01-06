@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import getConfig from "next/config";
 import { ParimutuelWeb3 } from "@hxronetwork/parimutuelsdk";
-import { Connection, Keypair, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
+import { Connection, Keypair, LAMPORTS_PER_SOL, PublicKey, clusterApiUrl } from "@solana/web3.js";
 
 import { getWeb3Config } from "@constants/config";
 
@@ -25,11 +25,13 @@ const handler = async (req: FaucetNextApiRequest, res: NextApiResponse<Response>
     publicRuntimeConfig: { APP_ENV },
   } = getConfig();
 
+  console.log('Key', AUTHORITY_KEY_PAIR);
+
   // disable other than dev env
   if (APP_ENV !== "dev") return;
 
   const connection = new Connection(
-    "https://hxro-hxro-b289.devnet.rpcpool.com/",
+    clusterApiUrl('devnet'),
     "confirmed",
   );
   console.log(AUTHORITY_KEY_PAIR);

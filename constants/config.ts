@@ -1,5 +1,6 @@
 import getConfig from "next/config";
-import { ConfigEnum, DEV_CONFIG, ParimutuelConfig, STAGING_CONFIG } from "@hxronetwork/parimutuelsdk";
+import { ConfigEnum, DEV_CONFIG, ParimutuelConfig, STAGING_CONFIG,  } from "@hxronetwork/parimutuelsdk";
+import {clusterApiUrl} from "@solana/web3.js";
 
 // eslint-disable-next-line
 export const getWeb3Config = (config?: ParimutuelConfig): any => {
@@ -19,5 +20,6 @@ export const getWeb3Url = () => {
 
   if (APP_ENV === ConfigEnum.STAGING)
     return "https://hxro.rpcpool.com/";
-  return "https://hxro-hxro-b289.devnet.rpcpool.com/";
+  return clusterApiUrl('devnet')
+;
 };
