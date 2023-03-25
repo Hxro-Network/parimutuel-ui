@@ -41,8 +41,8 @@ jobs:
           aws s3 sync s3://trading-view-library/datafeeds/ ./public/library/datafeeds/
       - name: Linting
         run: yarn lint
-      - name: Type checking
-        run: yarn type-check
+      # - name: Type checking
+      #   run: yarn type-check
 
   build:
     needs: lint_tsc

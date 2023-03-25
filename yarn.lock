@@ -1925,10 +1925,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@hxronetwork/parimutuelsdk@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@hxronetwork/parimutuelsdk/-/parimutuelsdk-1.0.2.tgz#e38d3612f2f15c40c2b08c9f2d1081c332cd6c8f"
-  integrity sha512-T/526ZfwAtUdOZc8jG1EWeljFCVnD9sdBqEIVNvnvp8k2tZKdMdQd46GFVOWAoti2mjdbDIRE71Hhb1b+w43Pg==
+"@hxronetwork/parimutuelsdk@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.npmjs.org/@hxronetwork/parimutuelsdk/-/parimutuelsdk-1.0.23.tgz#fbc77fd6f7882508622a56cd69abbca4a3f74baf"
+  integrity sha512-+5Ji7+0fQOE4HSIZMpz0Zkc0mmXclomAq7QrgEYGSHgUgjxTGEK5QzxPsKrnui9hx92nvrC7I8BmTvTdpzS4iA==
   dependencies:
     "@solana/spl-token" "^0.1.8"
     "@solana/wallet-adapter-base" "^0.7.0"
