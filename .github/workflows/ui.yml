@@ -11,7 +11,7 @@ env:
   AWS_REGION: eu-west-2
   ECR_REGISTRY: 905383583349.dkr.ecr.eu-west-2.amazonaws.com
   ECR_REPOSITORY: parimutuel-ui
-  ECS_TASK_DEFINITION: parimutuel-ui.aws-ecs-task-definition.json
+  ECS_TASK_DEFINITION: parimutuel-ui-prod.aws-ecs-task-definition.json
   ECS_CLUSTER: parimutuel-services
   ECS_SERVICE: parimutuel-ui
   CONTAINER_NAME: parimutuel-ui
