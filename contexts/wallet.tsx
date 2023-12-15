@@ -2,7 +2,6 @@ import React, { useCallback, useMemo } from "react";
 import { WalletError } from "@solana/wallet-adapter-base";
 import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
 import {
-  getLedgerWallet,
   getMathWallet,
   getPhantomWallet,
   getSolflareWallet,
@@ -27,7 +26,6 @@ export const WalletConnectionProvider: React.FC = ({ children }) => {
             "BM1tQXhRWuUS_fBbp2tARqX-BsOp-W-_HgW71DUSYWh7_TGvjgDzeL6Sp0FBm9UaE2FQYH-TkUp3CDC6LEQh52Y",
         },
       }),
-      getLedgerWallet(),
       getSolongWallet(),
       getMathWallet(),
       getSolletWallet(),
