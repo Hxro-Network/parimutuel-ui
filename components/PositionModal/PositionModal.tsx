@@ -74,7 +74,7 @@ export const PositionModal: React.FC = () => {
   const handleEnterPosition = useCallback(async () => {
     play();
 
-    const transactionId = await web3?.placePosition(
+    const transactionId = await web3?.placePositionWithOperator(
       wallet as WalletSigner,
       new PublicKey(selectedParimutuel),
       parseFloat(amount) * (10 ** usdcDecimals / contractSize),
